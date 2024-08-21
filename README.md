@@ -1,84 +1,48 @@
-# Teste FullStack Fleeting
+# App To-do
 
-Stack: Nest.js, Next.js
+WIP...
 
-Banco: Postgres
+## Índice
 
-ORM: TypeORM
+- [Sobre](#sobre)
+- [Instalação](#instalação)
 
-Validações: yup | zod | class-validator
+## Sobre
 
-Chamadas HTTP: axios | getServerSideProps | React-Query
+Projeto de aplicativo to-do, feito como parte do desafio full-stack.
 
-Estilizações: styled-components | tailwindcss
+## Instalação
 
-Formulario: react-hook-form
+1. **Clone o repositório:**
 
-State-management: react context (Não utilizar libs)
+   ```bash
+   git clone https://github.com/uellpalma/todo-fullstack.git
+   cd todo-fullstack/mobile
+   ```
 
-# Obrigatório
+2. **Instale as dependências:**
 
-Criar uma padrão de estilização utilizando prettier / eslint para checagem de código
+   Certifique-se de ter o [Node.js](https://nodejs.org/) e [Yarn](https://yarnpkg.com/) instalados.
 
-Readme de como rodar o projeto
+   ```bash
+   yarn install
+   ```
 
-Dockerfile para rodar a aplicação
+3. **Instale o Expo CLI globalmente (caso ainda não tenha):**
 
-Componentização de todos os componentes (frontend)
+   ```bash
+   npm install -g expo-cli
+   # ou
+   yarn global add expo-cli
+   ```
 
-Criar paginação dos TODO's e um filtro por (id | title | status | created_at)
+## Uso
 
-# Opcional
+1. **Inicie a aplicação:**
 
-Biblioteca de componentes(opcional): MUI
+   ```bash
+   yarn start
+   ```
 
-# Diferencial
+2. Após executar o comando, você verá um QR code no terminal ou no navegador. Use o aplicativo Expo Go em seu dispositivo móvel (iOS ou Android) para escanear o QR code e visualizar a aplicação.
 
-Monorepo
-
-Subir em um serviço de cloud free como vercel e railway
-
-Utilizar o husky (https://www.npmjs.com/package/husky)
-
-Salvar fuso horario no banco de dados
-
-Seed para popular o banco de dados
-
-Soft delete com data e horario (usuario não pode realmente deletar o registro, apenas marcar como deletado, exemplo deleted_user1@fleeting.com.br)
-
-# Projeto
-
-Criar um fork desse repositorio e construir o projeto em cima dele
-
-## Backend
-
-Criar uma API Rest utilizando Nest.js contendo:
-
-CRUD para login
-({
-id: uuid,
-name: string,
-email: string,
-password: string,
-created_at: Date,
-updated_at: Date,
-todos: Todo[],
-})
-
-CRUD para cadastrar TODO's
-({
-id: uuid,
-title: string,
-description: string,
-status: 'to-do' | 'doing' | 'done',
-created_at: Date,
-updated_at: Date,
-})
-
-## Frontend
-
-Criar o projeto utilizando Next.js com a pages router
-
-Deve conter uma tela de login e uma tela de cadastro de TODO's
-
-OPCIONAL: tela pro usuario editar seus proprios dados basicos e tela de esqueci minha senha
