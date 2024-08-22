@@ -11,13 +11,24 @@ WIP...
 
 Projeto de aplicativo to-do, feito como parte do desafio full-stack.
 
+Obs: Como ainda não tem uma api conectada, para ultrapassar o fluxo de autenticação é só alterar o hack na arquivo de rotas src/routes/index.tsx para:
+
+```bash
+   useEffect(() => {
+      setTimeout(() => {
+         setIsLoading(false);
+         setUserData({});
+      }, 4000);
+   }, []);
+```
+
 ## Instalação
 
 1. **Clone o repositório:**
 
    ```bash
    git clone https://github.com/uellpalma/todo-fullstack.git
-   cd todo-fullstack/mobile
+   cd todo-fullstack/mobile-app
    ```
 
 2. **Instale as dependências:**
