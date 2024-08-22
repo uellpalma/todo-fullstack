@@ -1,8 +1,7 @@
 import React from "react";
 
 import { Heading } from "@/components/ui/heading";
-import { ScreenBase } from "@/components/screen-base";
-import { useOptionsScreen } from "@/src/modules/common";
+import { ScreenBase, useOptionsScreen } from "@/src/modules/common";
 import {
   Avatar,
   AvatarFallbackText,

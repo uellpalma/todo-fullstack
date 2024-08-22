@@ -23,7 +23,7 @@ const RootStackScreen: React.FC = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-      setUserData(null);
+      setUserData({});
     }, 4000);
   }, []);
 

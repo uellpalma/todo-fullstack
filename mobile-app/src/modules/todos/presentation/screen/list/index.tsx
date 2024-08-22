@@ -1,16 +1,15 @@
-import React, { useCallback } from 'react';
+import React, { useCallback } from "react";
 
-import { ScreenBase } from '@/components/screen-base';
-import { useOptionsScreen } from '@/src/modules/common';
-import { ScrollView } from 'react-native';
-import { Fab, FabIcon } from '@/components/ui/fab';
-import { AddIcon, Icon, TrashIcon } from '@/components/ui/icon';
-import { Box } from '@/components/ui/box';
-import { HStack } from '@/components/ui/hstack';
-import { Text } from '@/components/ui/text';
-import { Badge, BadgeText } from '@/components/ui/badge';
-import { useNavigation } from '@react-navigation/native';
-import { HeaderUser } from '../../components/HeaderUser';
+import { ScreenBase, useOptionsScreen } from "@/src/modules/common";
+import { ScrollView } from "react-native";
+import { Fab, FabIcon } from "@/components/ui/fab";
+import { AddIcon, Icon, TrashIcon } from "@/components/ui/icon";
+import { Box } from "@/components/ui/box";
+import { HStack } from "@/components/ui/hstack";
+import { Text } from "@/components/ui/text";
+import { Badge, BadgeText } from "@/components/ui/badge";
+import { useNavigation } from "@react-navigation/native";
+import { HeaderUser } from "../../components/HeaderUser";
 
 export const TodoListScreen = () => {
   useOptionsScreen({
@@ -20,15 +19,15 @@ export const TodoListScreen = () => {
   const navigation = useNavigation();
 
   const handleNavigateProfile = useCallback(() => {
-    navigation.navigate('Profile');
+    navigation.navigate("Profile");
   }, []);
 
   return (
     <ScreenBase>
-      <HeaderUser userName='Jane Doh' onPressProfile={handleNavigateProfile} />
+      <HeaderUser userName="Jane Doh" onPressProfile={handleNavigateProfile} />
 
       <HStack space="md" className="mt-10">
-        {['Pendente', 'Em andamento', 'Concluído'].map((status) => (
+        {["Pendente", "Em andamento", "Concluído"].map((status) => (
           <Badge size="lg" variant="outline" action="muted" key={status}>
             <BadgeText>{status}</BadgeText>
           </Badge>
