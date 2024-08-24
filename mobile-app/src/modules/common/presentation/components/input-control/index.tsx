@@ -10,12 +10,14 @@ import {
 import { Input, InputField } from "@/components/ui/input";
 import { type InputControlProps } from "./types";
 import { AlertCircleIcon } from "@/components/ui/icon";
+import { Textarea, TextareaInput } from "@/components/ui/textarea";
 
 export const InputControl = <T extends FieldValues>({
   control,
   formState,
   label,
   name,
+  textArea,
   ...rest
 }: InputControlProps<T>) => {
   const errorInput = formState?.errors[name];
@@ -26,17 +28,31 @@ export const InputControl = <T extends FieldValues>({
       control={control}
       render={({ field: { onChange, onBlur, value } }) => (
         <FormControl isInvalid={isInvalid}>
-          <FormControlLabel className="mb-1">
-            <FormControlLabelText>{label}</FormControlLabelText>
-          </FormControlLabel>
-          <Input isInvalid={isInvalid}>
-            <InputField
-              {...rest}
-              onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
-            />
-          </Input>
+          {label ? (
+            <FormControlLabel className="mb-1">
+              <FormControlLabelText>{label}</FormControlLabelText>
+            </FormControlLabel>
+          ) : null}
+
+          {textArea ? (
+            <Textarea isInvalid={isInvalid}>
+              <TextareaInput
+                {...rest}
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+              />
+            </Textarea>
+          ) : (
+            <Input isInvalid={isInvalid}>
+              <InputField
+                {...rest}
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+              />
+            </Input>
+          )}
 
           <FormControlError>
             <FormControlErrorIcon size="md" as={AlertCircleIcon} />

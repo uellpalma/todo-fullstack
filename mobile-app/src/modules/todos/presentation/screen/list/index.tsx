@@ -1,22 +1,25 @@
 import React, { useCallback } from "react";
 
 import { ScreenBase, useOptionsScreen } from "@/src/modules/common";
-import { ScrollView } from "react-native";
 import { Fab, FabIcon } from "@/components/ui/fab";
-import { AddIcon, Icon, TrashIcon } from "@/components/ui/icon";
+import { AddIcon } from "@/components/ui/icon";
 import { Box } from "@/components/ui/box";
-import { HStack } from "@/components/ui/hstack";
-import { Text } from "@/components/ui/text";
-import { Badge, BadgeText } from "@/components/ui/badge";
 import { useNavigation } from "@react-navigation/native";
 import { HeaderUser } from "../../components/HeaderUser";
+import { useTodoBottomSheets } from "../../../application/hooks";
+import { TodoFilters, TodosList } from "../../components";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "@/src/routes/types";
 
 export const TodoListScreen = () => {
   useOptionsScreen({
     headerShown: false,
   });
 
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const { openTodoFormBottomSheet, renderTodoBottomSheets } =
+    useTodoBottomSheets();
 
   const handleNavigateProfile = useCallback(() => {
     navigation.navigate("Profile");
@@ -26,38 +29,21 @@ export const TodoListScreen = () => {
     <ScreenBase>
       <HeaderUser userName="Jane Doh" onPressProfile={handleNavigateProfile} />
 
-      <HStack space="md" className="mt-10">
-        {["Pendente", "Em andamento", "Concluído"].map((status) => (
-          <Badge size="lg" variant="outline" action="muted" key={status}>
-            <BadgeText>{status}</BadgeText>
-          </Badge>
-        ))}
-      </HStack>
+      <TodoFilters />
 
-      <ScrollView contentContainerStyle={{ paddingVertical: 15 }}>
-        <Box className="bg-white p-2 rounded-lg">
-          <HStack className="justify-between items-center">
-            <HStack space="md">
-              <Box className="w-7 h-7 border border-black rounded-lg"></Box>
-              <Text size="lg">Tarefa 1</Text>
-            </HStack>
-
-            <Icon as={TrashIcon} size="md" className="text-red-600" />
-          </HStack>
-        </Box>
-      </ScrollView>
+      <TodosList />
 
       <Box className="w-full bg-red px-10">
         <Fab
           size="lg"
           placement="bottom center"
-          isHovered={false}
-          isDisabled={false}
-          isPressed={false}
+          onPress={openTodoFormBottomSheet}
         >
           <FabIcon as={AddIcon} size="xl" />
         </Fab>
       </Box>
+
+      {renderTodoBottomSheets()}
     </ScreenBase>
   );
 };

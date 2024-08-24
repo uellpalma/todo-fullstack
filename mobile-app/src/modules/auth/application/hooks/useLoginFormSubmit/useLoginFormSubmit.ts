@@ -1,4 +1,4 @@
-import { useAuthenticate, type LoginFormValues } from "@/src/services/auth";
+import { useAuthenticate, type LoginParams } from "@/src/services/auth";
 import { useCallback, useMemo } from "react";
 
 export const useLoginFormSubmit = () => {
@@ -9,7 +9,7 @@ export const useLoginFormSubmit = () => {
   } = useAuthenticate();
 
   const onSubmit = useCallback(
-    (values: LoginFormValues) => {
+    (values: LoginParams) => {
       loginRequest(values, {
         onError: () => {
           alert("Erro ao fazer login, cheque suas credenciais.");

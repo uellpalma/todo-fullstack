@@ -14,10 +14,13 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { useLoginFormSubmit } from "../../../application";
-import { loginSchema } from "../../../../../services/auth";
+import { loginSchema } from "../../validators";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "@/src/routes/types";
 
 export const SingInScreen = () => {
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const { onSubmit, isPendingLogin } = useLoginFormSubmit();
 
   const form = useForm({

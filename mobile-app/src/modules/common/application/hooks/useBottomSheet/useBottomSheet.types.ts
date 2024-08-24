@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
 export type UseBottomSheetTypes<T> = {
-  ContentComponent: React.JSX.Element;
+  ContentComponent: React.ElementType;
   initialData: T;
 };

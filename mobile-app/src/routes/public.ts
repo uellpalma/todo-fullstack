@@ -1,13 +1,12 @@
-import { AuthStack, AuthStackParamList } from '../modules/auth/routes';
-import { StackRouteConfig } from './types';
+import { AuthStack, type AuthStackParamList } from "../modules/auth/routes";
+import { StackRouteConfig } from "./types";
 
 export type PublicStackParamList = AuthStackParamList;
 
 type PublicStackRouteConfig = StackRouteConfig<PublicStackParamList>;
 
-const PublicStack: Record<keyof PublicStackParamList, PublicStackRouteConfig> =
-  {
-    ...AuthStack,
-  };
+const PublicStack = {
+  ...AuthStack,
+} as Record<keyof PublicStackParamList, PublicStackRouteConfig>;
 
 export default PublicStack;

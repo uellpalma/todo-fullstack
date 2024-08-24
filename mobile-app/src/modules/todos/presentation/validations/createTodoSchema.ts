@@ -1,8 +1,8 @@
-import * as yup from 'yup';
+import * as yup from "yup";
 
 export const createTodoSchema = yup.object({
   title: yup.string().required(),
-  description: yup.string(),
+  description: yup.string().optional(),
 });
 
 export type CreateTodoFormValues = yup.InferType<typeof createTodoSchema>;

@@ -1,20 +1,17 @@
-import { TodoStack, type TodoStackParamList } from '../modules/todos/routes';
+import { TodoStack, type TodoStackParamList } from "../modules/todos/routes";
 import {
   ProfileStack,
   type ProfileStackParamList,
-} from '../modules/user/routes';
-import { StackRouteConfig } from './types';
+} from "../modules/user/routes";
+import { StackRouteConfig } from "./types";
 
-export type NewSignUpStackParamList = TodoStackParamList;
+export type PrivateStackParamList = TodoStackParamList & ProfileStackParamList;
 
-type PrivateStackRouteConfig = StackRouteConfig<NewSignUpStackParamList>;
+type PrivateStackRouteConfig = StackRouteConfig<PrivateStackParamList>;
 
-const PrivateStack: Record<
-  keyof NewSignUpStackParamList,
-  PrivateStackRouteConfig
-> = {
+const PrivateStack = {
   ...TodoStack,
   ...ProfileStack,
-};
+} as Record<keyof PrivateStackParamList, PrivateStackRouteConfig>;
 
 export default PrivateStack;

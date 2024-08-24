@@ -1,6 +1,6 @@
-import { StackRouteConfig } from '../../../routes/types';
+import { StackRouteConfig } from "../../../routes/types";
 
-import { TodoListScreen } from '../presentation/screen/list';
+import { TodoListScreen } from "../presentation/screen/list";
 
 export type TodoStackParamList = {
   TodoList: undefined;

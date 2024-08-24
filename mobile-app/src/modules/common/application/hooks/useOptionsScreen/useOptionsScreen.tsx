@@ -1,17 +1,20 @@
-import { useNavigation } from '@react-navigation/native';
-import React from 'react';
-import { useLayoutEffect } from 'react';
+import { useNavigation } from "@react-navigation/native";
+import React from "react";
+import { useLayoutEffect } from "react";
 
-import { ArrowLeftIcon, Icon } from '@/components/ui/icon';
-import { UseOptionsScreenProps } from './useOptionsScreen.types';
-import { Box } from '@/components/ui/box';
-import { TouchableOpacity } from 'react-native';
+import { ArrowLeftIcon, Icon } from "@/components/ui/icon";
+import { UseOptionsScreenProps } from "./useOptionsScreen.types";
+import { Box } from "@/components/ui/box";
+import { TouchableOpacity } from "react-native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "@/src/routes/types";
 
 export const useOptionsScreen = ({
   title,
   ...props
 }: UseOptionsScreenProps) => {
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   useLayoutEffect(() => {
     navigation.setOptions({

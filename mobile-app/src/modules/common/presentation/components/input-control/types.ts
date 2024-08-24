@@ -4,6 +4,7 @@ import { TextInputProps } from "react-native";
 export type InputControlProps<T extends FieldValues> = {
   control: Control<T>;
   formState: FormState<T>;
-  label: string;
+  label?: string;
+  textArea?: boolean;
   name: Path<T>;
 } & TextInputProps;

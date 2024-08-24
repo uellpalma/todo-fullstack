@@ -1,6 +1,6 @@
-import { StackRouteConfig } from '../../../routes/types';
+import { StackRouteConfig } from "../../../routes/types";
 
-import { ProfileScreen } from '../presentation/screen/profile';
+import { ProfileScreen } from "../presentation/screen/profile";
 
 export type ProfileStackParamList = {
   Profile: undefined;

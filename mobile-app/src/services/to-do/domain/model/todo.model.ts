@@ -1,9 +1,7 @@
-import { CreateTodoFormValues } from './schema';
-
 export enum TodoStatusEnum {
-  TODO = 'to-do',
-  DOING = 'doing',
-  DONE = 'done',
+  TODO = "to-do",
+  DOING = "doing",
+  DONE = "done",
 }
 
 export type TodoData = {
@@ -19,6 +17,9 @@ export type TodosListResponse = {
   todos: TodoData[];
 };
 
-export type CreateTodoParams = CreateTodoFormValues;
+export type CreateTodoParams = {
+  title: string;
+  description?: string;
+};
 
-export type UpdateTodoParams = Partial<CreateTodoFormValues>;
+export type UpdateTodoParams = Partial<CreateTodoParams>;

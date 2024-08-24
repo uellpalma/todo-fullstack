@@ -1,13 +1,15 @@
-import {
-  type ForgotPassFormValues,
-  type LoginFormValues,
-  type RegisterFormValues,
-} from './schema';
+export type LoginParams = {
+  email: string;
+  password: string;
+};
+
+export type RegisterParams = LoginParams & {
+  name: string;
+};
+export type ForgotPassParams = {
+  email: string;
+};
 
 export type AuthenticateResponse = {
   token: string;
 };
-
-export type LoginParams = LoginFormValues;
-export type RegisterParams = RegisterFormValues;
-export type ForgotPassParams = ForgotPassFormValues;

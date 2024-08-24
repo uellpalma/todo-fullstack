@@ -13,8 +13,8 @@ import { Box } from "@/components/ui/box";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { forgotPassSchema } from "@/src/services";
 import { useForgotPassFormSubmit } from "../../../application";
+import { forgotPassSchema } from "../../validators";
 
 export const ForgotPassScreen = () => {
   useOptionsScreen({

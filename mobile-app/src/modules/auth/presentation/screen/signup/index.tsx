@@ -15,11 +15,14 @@ import { Box } from "@/components/ui/box";
 import { useNavigation } from "@react-navigation/native";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { registerSchema } from "@/src/services";
 import { useRegisterFormSubmit } from "../../../application";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "@/src/routes/types";
+import { registerSchema } from "../../validators";
 
 export const SignUpScreen = () => {
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const { isPendingRegister, onSubmit } = useRegisterFormSubmit();
 
   const form = useForm({

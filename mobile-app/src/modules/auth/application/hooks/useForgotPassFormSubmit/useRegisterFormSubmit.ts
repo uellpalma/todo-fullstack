@@ -1,4 +1,4 @@
-import { type ForgotPassFormValues, useForgotPass } from "@/src/services/auth";
+import { type ForgotPassParams, useForgotPass } from "@/src/services/auth";
 import { useCallback, useMemo } from "react";
 
 export const useForgotPassFormSubmit = () => {
@@ -9,7 +9,7 @@ export const useForgotPassFormSubmit = () => {
   } = useForgotPass();
 
   const onSubmit = useCallback(
-    (values: ForgotPassFormValues) => {
+    (values: ForgotPassParams) => {
       forgotPassRequest(values, {
         onError: () => {
           alert("Erro ao fazer requisição de nova senha.");

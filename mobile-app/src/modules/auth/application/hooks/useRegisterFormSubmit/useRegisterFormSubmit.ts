@@ -1,4 +1,4 @@
-import { type RegisterFormValues, useRegister } from "@/src/services/auth";
+import { type RegisterParams, useRegister } from "@/src/services/auth";
 import { useCallback, useMemo } from "react";
 
 export const useRegisterFormSubmit = () => {
@@ -9,7 +9,7 @@ export const useRegisterFormSubmit = () => {
   } = useRegister();
 
   const onSubmit = useCallback(
-    (values: RegisterFormValues) => {
+    (values: RegisterParams) => {
       registerRequest(values, {
         onError: () => {
           alert("Erro ao criar conta.");
